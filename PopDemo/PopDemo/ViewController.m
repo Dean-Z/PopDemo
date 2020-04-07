@@ -22,6 +22,10 @@ static CGFloat const kCircleSize       = 16;
 @implementation ViewController
 
 - (void)handleTap:(id)sender {
+    for (UIView *circle in self.circles) {
+        circle.linear.backgroundColor = [UIColor colorWithRed:0 green:0.439 blue:0.416 alpha:1];
+    }
+    
     CGFloat angleIncrement = M_PI * 2 / kNumberOfCircles;
     CGPoint center = CGPointMake(CGRectGetWidth(self.view.bounds) / 2, CGRectGetHeight(self.view.bounds) / 2);
 
@@ -84,6 +88,7 @@ static CGFloat const kCircleSize       = 16;
         circle.center = center;
         circle.alpha = 0;
         circle.springSpeed = 1;
+        circle.duration = 3;
         circle.scaleXY = CGPointMake(0.5, 0.5);
 
         [self.view addSubview:circle];
